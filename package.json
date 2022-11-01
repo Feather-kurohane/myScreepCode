@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "main": "main.js",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
     "@types/lodash": "^3.10.1",
     "@types/screeps": "^3.3.0",
     "rollup": "^3.2.5",
@@ -11,12 +13,11 @@
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-screeps": "^1.0.1"
   },
-  "type": "module",
   "scripts": {
-    "build": "rollup -cw",
+    "build": "rollup -cw --bundleConfigAsCjs",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "push": "rollup -cw --environment DEST:main",
-    "local": "rollup -cw --environment DEST:local"
+    "push": "rollup -cw --environment DEST:main --bundleConfigAsCjs",
+    "local": "rollup -cw --environment DEST:local --bundleConfigAsCjs"
   },
   "repository": {
     "type": "git",
@@ -27,5 +28,8 @@
   "bugs": {
     "url": "https://github.com/Mostilv/myScreepCode/issues"
   },
-  "homepage": "https://github.com/Mostilv/myScreepCode#readme"
+  "homepage": "https://github.com/Mostilv/myScreepCode#readme",
+  "dependencies": {
+    "source-map": "^0.6.1"
+  }
 }
